@@ -15,22 +15,20 @@ import com.codeborne.selenide.SelenideElement;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  *
  * @author user
  */
 public class SearchPage extends CommonPage{
-    private static SearchPage page;
     public SearchPage(){}
-    public static SearchPage createSearchPage(){
-    if(page==null) {page=new SearchPage();} 
-        return page;}
     String departure=".//form[@class='AviaSearchForm']//input[contains(@data-reactid,'1$segment-4.0.')]";
     String arrival=".//form[@class='AviaSearchForm']//input[contains(@data-reactid,'1$segment-4.1.')]";
     String date=".//form[@class='AviaSearchForm']//input[contains(@data-reactid,'1$segment-4.2.')]";
     public void search(String dep,String arr,String dat) {
-     
+    /*SelenideElement elem=sin.web.find(By.xpath(departure));
+    elem.setValue(dep);*/
     $x(departure).setValue(dep);
     $(byText(dep)).click();
     $x(arrival).setValue(arr);

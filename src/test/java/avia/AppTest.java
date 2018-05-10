@@ -19,10 +19,19 @@ public class AppTest
 {
   @Test
   public void aviakassaPage(){
-      SearchPage s=SearchPage.createSearchPage();
-      RecommendPage r=RecommendPage.createRecommendPage();
+      SearchPage s=new SearchPage();
+      RecommendPage r=new RecommendPage();
       s.openBrowser("https://aviakassa.com");
       s.search("Moscow", "LED", "240518");
       r.checkDepartureCity("Moscow");
+      s.closeBrowser();
+  }
+  @Test
+  public void humans(){
+  Generator g=new Generator();
+  for(int i=0;i<5;i++){
+  System.out.println(g.getMaleName()+" "+g.getMaleMidname()+" "+g.getMaleLastname());}
+  for(int i=0;i<5;i++){
+  System.out.println(g.getFemaleName()+" "+g.getFemaleMidname()+" "+g.getFemaleLastname());}
   }
   }

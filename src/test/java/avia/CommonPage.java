@@ -7,7 +7,9 @@ package avia;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
 /**
@@ -15,13 +17,18 @@ import org.openqa.selenium.WebDriver;
  * @author user
  */
 public class CommonPage {
-    private SingletonPages sin;
+    public SingletonPages sin;
     public CommonPage(){
         sin=SingletonPages.getSingle();
     }
     public void openBrowser(String url){
-    open(url);
-    sin.web=getWebDriver();}
+    System.setProperty("webdriver.chrome.driver", "/home/user/chromedriver");
+    sin.web=new ChromeDriver();
+    sin.web.get(url);
+    setWebDriver(sin.web);
+    }
+    public void closeBrowser(){
+    sin.web.close();}
     String flights=".//div[@class='Nav']/div[contains(@data-reactid,'$0')]";
     
 }

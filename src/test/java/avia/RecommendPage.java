@@ -15,12 +15,7 @@ import org.openqa.selenium.WebDriver;
  * @author user
  */
 public class RecommendPage extends CommonPage{
-    private static RecommendPage page;
-    private RecommendPage(){}
-    public static RecommendPage createRecommendPage(){
-    if(page==null) {page=new RecommendPage();}
-        return page;
-    }
+    public RecommendPage(){}
     String from=".//div[@class='AviaResultSearch__Field__Inner']//span[contains(@data-reactid,'$0.0')]";
     public void checkDepartureCity(String value){
     $x(from).shouldHave(text(value));}
